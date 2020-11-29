@@ -1,15 +1,22 @@
 package org.fepu08.junit.helper;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import static org.junit.Assert.*;
 
 public class QuickBeforeAfterTest {
     /**
+     * @BeforeClass methods only execute once
+     * must be static
+     * */
+    @BeforeClass
+    public static void beforeClass(){
+        System.out.println("Before Class");
+    }
+
+    /**
      * Methods with @Before
-     * runs before every single tests
+     * runs BEFORE every single tests
      * */
     @Before
     public void setup(){
@@ -26,8 +33,21 @@ public class QuickBeforeAfterTest {
         System.out.println("test2 executed");
     }
 
+    /**
+     * Methods with @After
+     * runs AFTER every single tests
+     * */
     @After
     public void teardown(){
         System.out.println("After test");
+    }
+
+    /**
+     * @AfterClass methods only execute once
+     * must be static
+     * */
+    @AfterClass
+    public static void afterClass(){
+        System.out.println("After Class");
     }
 }
