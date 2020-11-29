@@ -12,8 +12,8 @@ public class StringHelperTest {
      * and must use @Test annotation
      */
     @Test
-    public void truncateAInFirst2Positions(){
-        //assertEqueals(excpected, actual)
+    public void testTruncateAInFirst2Positions(){
+        //assertEquals(expected, actual)
         assertEquals("ABC", "ABC");
         //AACD => CD, ACD => CD, CDEF => CDEF, CDAA => CDAA
         assertEquals("CD", helper.truncateAInFirst2Positions("AACD"));
@@ -28,22 +28,40 @@ public class StringHelperTest {
      * one of its benefits is you see which method fall
      * */
     @Test
-    public void truncateAInFirst2Positions_AInFirst2Positions(){
+    public void testTruncateAInFirst2Positions_AInFirst2Positions(){
         assertEquals("CD", helper.truncateAInFirst2Positions("AACD"));
     }
 
     @Test
-    public void truncateAInFirst2Positions_AInFirstPosition(){
+    public void testTruncateAInFirst2Positions_AInFirstPosition(){
         assertEquals("CD", helper.truncateAInFirst2Positions("ACD"));
     }
 
     @Test
-    public void truncateAInFirst2Positions_DoesntContainA(){
-        assertEquals("CD", helper.truncateAInFirst2Positions("CDEF"));
+    public void testTruncateAInFirst2Positions_DoesntContainA(){
+        assertEquals("CDEF", helper.truncateAInFirst2Positions("CDEF"));
     }
 
     @Test
-    public void truncateAInFirst2Positions_AInTheEnd(){
-        assertEquals("CD", helper.truncateAInFirst2Positions("CDAA"));
+    public void testTruncateAInFirst2Positions_AInTheEnd(){
+        assertEquals("CDAA", helper.truncateAInFirst2Positions("CDAA"));
+    }
+
+    /**
+     * assertTrue(boolean conditional) | assertTrue(String message, boolean conditional)
+     *     - asserts that a condition is true
+     *     - equal with assertEquals(true, boolean)
+     * assertFalse(condition) | assertFalse(String message, boolean conditional)
+     *     - asserts that a condition is false
+     *     - equal with assertEquals(false, boolean)
+     */
+    @Test
+    public void testAreFirstAndLastTwoCharactersTheSame_BasicNegativeScenario(){
+        assertFalse(helper.areFirstAndLastTwoCharactersTheSame("ABCD"));
+    }
+
+    @Test
+    public void testAreFirstAndLastTwoCharactersTheSame_BasicPositiveScenario(){
+        assertTrue(helper.areFirstAndLastTwoCharactersTheSame("BCASDBC"));
     }
 }
