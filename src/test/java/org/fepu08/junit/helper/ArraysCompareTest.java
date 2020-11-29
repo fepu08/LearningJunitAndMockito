@@ -10,12 +10,18 @@ public class ArraysCompareTest {
 
     // Arrays.sort
     @Test
-    public void test(){
+    public void testArraySort_RandomArray(){
         int[] numbers = {12,3,4,1};
         int[] expected = {1,3,4,12};
         Arrays.sort(numbers);
         // assertEquals() wont work with arrays
         // because arrays are reference type (objects)
         assertArrayEquals(expected, numbers);
+    }
+
+    @Test(expected=NullPointerException.class)
+    public void testArraySort_NullArray(){
+        int[] numbers = null;
+        Arrays.sort(numbers);
     }
 }
