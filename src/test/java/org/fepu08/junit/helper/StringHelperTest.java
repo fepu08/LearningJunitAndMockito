@@ -1,11 +1,19 @@
 package org.fepu08.junit.helper;
 
 import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class StringHelperTest {
 
-    StringHelper helper = new StringHelper();
+    StringHelper helper;
+
+    @Before
+    public void before(){
+        helper = new StringHelper();
+    }
 
     /**
      * Junit test methods must NOT be private nor may it return a value (must to be void)
