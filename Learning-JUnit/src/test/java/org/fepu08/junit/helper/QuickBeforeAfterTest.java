@@ -2,8 +2,6 @@ package org.fepu08.junit.helper;
 
 import org.junit.*;
 
-import static org.junit.Assert.*;
-
 public class QuickBeforeAfterTest {
     /**
      * @BeforeClass methods only execute once
